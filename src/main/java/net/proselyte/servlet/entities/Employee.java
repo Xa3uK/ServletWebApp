@@ -1,4 +1,4 @@
-package net.proselyte.servettutorial.entities;
+package net.proselyte.servlet.entities;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

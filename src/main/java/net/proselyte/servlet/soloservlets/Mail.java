@@ -1,7 +1,6 @@
-package net.proselyte.servettutorial.soloservlets;
+package net.proselyte.servlet.soloservlets;
 
 import jakarta.mail.*;
-import jakarta.mail.internet.AddressException;
 import jakarta.mail.internet.InternetAddress;
 import jakarta.mail.internet.MimeMessage;
 import jakarta.servlet.ServletException;

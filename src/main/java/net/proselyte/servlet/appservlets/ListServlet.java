@@ -1,4 +1,4 @@
-package net.proselyte.servettutorial.appservlets;
+package net.proselyte.servlet.appservlets;
 
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
@@ -6,7 +6,7 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.SneakyThrows;
-import net.proselyte.servettutorial.entities.Employee;
+import net.proselyte.servlet.entities.Employee;
 
 import java.io.IOException;
 import java.sql.*;

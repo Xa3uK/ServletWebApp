@@ -7,17 +7,17 @@
 
     <servlet>
         <servlet-name>sendmail</servlet-name>
-        <servlet-class>net.proselyte.servettutorial.appservlets.SendMailServlet</servlet-class>
+        <servlet-class>net.proselyte.servlet.appservlets.SendMailServlet</servlet-class>
     </servlet>
 
     <servlet>
         <servlet-name>add</servlet-name>
-        <servlet-class>net.proselyte.servettutorial.appservlets.AddServlet</servlet-class>
+        <servlet-class>net.proselyte.servlet.appservlets.AddServlet</servlet-class>
     </servlet>
 
     <servlet>
         <servlet-name>list</servlet-name>
-        <servlet-class>net.proselyte.servettutorial.appservlets.ListServlet</servlet-class>
+        <servlet-class>net.proselyte.servlet.appservlets.ListServlet</servlet-class>
     </servlet>
 
     <servlet-mapping>

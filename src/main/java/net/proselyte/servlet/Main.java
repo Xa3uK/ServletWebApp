@@ -1,12 +1,9 @@
-package net.proselyte.servettutorial;
+package net.proselyte.servlet;
 
-import java.net.ConnectException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.Collection;
-import java.util.concurrent.ConcurrentHashMap;
 
 public class Main {
     public static void main(String[] args) {
