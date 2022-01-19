@@ -12,13 +12,23 @@
 
     <servlet>
         <servlet-name>add</servlet-name>
-        <servlet-class>net.servlet.appservlets.AddServlet</servlet-class>
+        <servlet-class>net.servlet.appservlets.AddEmployeeServlet</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>delete</servlet-name>
+        <servlet-class>net.servlet.appservlets.DeleteEmployeeServlet</servlet-class>
     </servlet>
 
     <servlet>
         <servlet-name>list</servlet-name>
         <servlet-class>net.servlet.appservlets.ListServlet</servlet-class>
     </servlet>
+
+    <servlet-mapping>
+        <servlet-name>delete</servlet-name>
+        <url-pattern>/delete</url-pattern>
+    </servlet-mapping>
 
     <servlet-mapping>
         <servlet-name>list</servlet-name>

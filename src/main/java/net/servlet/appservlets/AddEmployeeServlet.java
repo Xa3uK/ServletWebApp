@@ -9,9 +9,8 @@ import lombok.SneakyThrows;
 
 import java.io.IOException;
 import java.sql.*;
-import java.util.Objects;
 
-public class AddServlet extends HttpServlet {
+public class AddEmployeeServlet extends HttpServlet {
     static final String DRIVER_DB = "org.postgresql.Driver";
     static final String DATABASE_URL = "jdbc:postgresql://localhost:5432/homework";
     static final String DATABASE_USER = "xa3uk";
