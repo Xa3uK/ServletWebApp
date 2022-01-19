@@ -1,0 +1,27 @@
+.idea
+*.iml
+# Ignore Gradle project-specific cache directory
+.gradle
+
+# Ignore Gradle build output directory
+build
+
+# Ignore Gradle GUI config
+gradle-app.setting
+
+# Cache of project
+.gradletasknamecache
+
+# From https://github.com/github/gitignore/blob/master/Java.gitignore
+*.class
+
+# Package Files #
+*.jar
+*.war
+*.ear
+gradle-wrapper.jar
+## File-based project format:
+*.iws
+
+# IntelliJ
+/out/

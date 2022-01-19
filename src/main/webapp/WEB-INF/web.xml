@@ -1,0 +1,38 @@
+<!DOCTYPE web-app PUBLIC
+        "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+        "http://java.sun.com/dtd/web-app_2_3.dtd" >
+
+<web-app>
+    <display-name>Servlets Tutorial</display-name>
+
+    <servlet>
+        <servlet-name>sendmail</servlet-name>
+        <servlet-class>net.proselyte.servettutorial.appservlets.SendMailServlet</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>add</servlet-name>
+        <servlet-class>net.proselyte.servettutorial.appservlets.AddServlet</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>list</servlet-name>
+        <servlet-class>net.proselyte.servettutorial.appservlets.ListServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>list</servlet-name>
+        <url-pattern>/list</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>add</servlet-name>
+        <url-pattern>/add</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>sendmail</servlet-name>
+        <url-pattern>/sendmail</url-pattern>
+    </servlet-mapping>
+
+</web-app>
