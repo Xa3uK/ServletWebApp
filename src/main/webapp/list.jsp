@@ -9,7 +9,7 @@
 
 <body class="w3-light-grey">
 <div class="w3-container w3-blue-grey w3-opacity w3-right-align">
-  <h1>HAZAPOWER SUPER APP</h1>
+  <h1>Servlet Web App</h1>
 </div>
 
 <div class="w3-container w3-center w3-margin-bottom w3-padding">

@@ -9,6 +9,7 @@ import lombok.SneakyThrows;
 
 import java.io.IOException;
 import java.sql.*;
+import java.util.Objects;
 
 public class AddServlet extends HttpServlet {
     static final String DRIVER_DB = "org.postgresql.Driver";
@@ -25,24 +26,33 @@ public class AddServlet extends HttpServlet {
     @Override
     @SneakyThrows
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        Long departmentId = Long.valueOf(req.getParameter("departmentId"));
+        Long chiefId = null;
+        if (req.getParameter("chiefId").length() > 0) {
+            chiefId = Long.valueOf(req.getParameter("chiefId"));
+        }
         String name = req.getParameter("name");
         int salary = Integer.parseInt(req.getParameter("salary"));
 
         Class.forName(DRIVER_DB);
         Connection con = DriverManager.getConnection(DATABASE_URL, DATABASE_USER, DATABASE_PASSWORD);
         String sql = "INSERT INTO employee (department_id, chief_id, name, salary) VALUES (?, ?, ?, ?)";
-        PreparedStatement st = con.prepareStatement(sql, new String[] {"id"});
-        st.setLong(1, 1L);
-        st.setNull(2, Types.NULL);
+        PreparedStatement st = con.prepareStatement(sql, new String[]{"id"});
+        st.setLong(1, departmentId);
+        if (chiefId == null) {
+            st.setNull(2, Types.NULL);
+        } else {
+            st.setLong(2, chiefId);
+        }
         st.setString(3, name);
         st.setInt(4, salary);
         st.executeUpdate();
         Long id = null;
         ResultSet gk = st.getGeneratedKeys();
-        if (gk.next()){
+        if (gk.next()) {
             id = gk.getLong("id");
         }
-        req.setAttribute("userName", name);
+        req.setAttribute("employeeName", name);
         req.setAttribute("id", id);
         doGet(req, resp);
     }
