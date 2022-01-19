@@ -10,39 +10,89 @@
         <servlet-class>net.servlet.appservlets.SendMailServlet</servlet-class>
     </servlet>
 
-    <servlet>
-        <servlet-name>add</servlet-name>
-        <servlet-class>net.servlet.appservlets.AddEmployeeServlet</servlet-class>
-    </servlet>
-
-    <servlet>
-        <servlet-name>delete</servlet-name>
-        <servlet-class>net.servlet.appservlets.DeleteEmployeeServlet</servlet-class>
-    </servlet>
-
-    <servlet>
-        <servlet-name>list</servlet-name>
-        <servlet-class>net.servlet.appservlets.ListServlet</servlet-class>
-    </servlet>
-
-    <servlet-mapping>
-        <servlet-name>delete</servlet-name>
-        <url-pattern>/delete</url-pattern>
-    </servlet-mapping>
-
-    <servlet-mapping>
-        <servlet-name>list</servlet-name>
-        <url-pattern>/list</url-pattern>
-    </servlet-mapping>
-
-    <servlet-mapping>
-        <servlet-name>add</servlet-name>
-        <url-pattern>/add</url-pattern>
-    </servlet-mapping>
-
     <servlet-mapping>
         <servlet-name>sendmail</servlet-name>
         <url-pattern>/sendmail</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>addDepartment</servlet-name>
+        <servlet-class>net.servlet.appservlets.departmentservlets.AddDepartmentServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>addDepartment</servlet-name>
+        <url-pattern>/addDepartment</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>addEmployee</servlet-name>
+        <servlet-class>net.servlet.appservlets.employeeservlets.AddEmployeeServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>addEmployee</servlet-name>
+        <url-pattern>/addEmployee</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>deleteEmployee</servlet-name>
+        <servlet-class>net.servlet.appservlets.employeeservlets.DeleteEmployeeServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>deleteEmployee</servlet-name>
+        <url-pattern>/deleteEmployee</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>deleteDepartment</servlet-name>
+        <servlet-class>net.servlet.appservlets.departmentservlets.DeleteDepartmentServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>deleteDepartment</servlet-name>
+        <url-pattern>/deleteDepartment</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>listEmployee</servlet-name>
+        <servlet-class>net.servlet.appservlets.employeeservlets.EmployeeListServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>listEmployee</servlet-name>
+        <url-pattern>/listEmployee</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>listDepartment</servlet-name>
+        <servlet-class>net.servlet.appservlets.departmentservlets.DepartmentListServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>listDepartment</servlet-name>
+        <url-pattern>/listDepartment</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>updateEmployee</servlet-name>
+        <servlet-class>net.servlet.appservlets.employeeservlets.UpdateEmployeeServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>updateEmployee</servlet-name>
+        <url-pattern>/updateEmployee</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>updateDepartment</servlet-name>
+        <servlet-class>net.servlet.appservlets.departmentservlets.UpdateDepartmentServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>updateDepartment</servlet-name>
+        <url-pattern>/updateDepartment</url-pattern>
     </servlet-mapping>
 
 </web-app>

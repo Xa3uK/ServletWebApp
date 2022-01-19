@@ -1,4 +1,4 @@
-package net.servlet.appservlets;
+package net.servlet.appservlets.employeeservlets;
 
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
@@ -21,7 +21,7 @@ public class DeleteEmployeeServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        RequestDispatcher requestDispatcher = req.getRequestDispatcher("delete.jsp");
+        RequestDispatcher requestDispatcher = req.getRequestDispatcher("deleteEmloyee.jsp");
         requestDispatcher.forward(req, resp);
     }
 
