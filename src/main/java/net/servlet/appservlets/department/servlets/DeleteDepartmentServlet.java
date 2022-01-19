@@ -1,4 +1,4 @@
-package net.servlet.appservlets.departmentservlets;
+package net.servlet.appservlets.department.servlets;
 
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
@@ -6,6 +6,7 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.SneakyThrows;
+import net.servlet.connection.DataBaseConnection;
 
 import java.io.IOException;
 import java.sql.Connection;
@@ -13,10 +14,6 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 
 public class DeleteDepartmentServlet extends HttpServlet {
-    static final String DRIVER_DB = "org.postgresql.Driver";
-    static final String DATABASE_URL = "jdbc:postgresql://localhost:5432/homework";
-    static final String DATABASE_USER = "xa3uk";
-    static final String DATABASE_PASSWORD = "perilrulit1";
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -28,8 +25,8 @@ public class DeleteDepartmentServlet extends HttpServlet {
     @SneakyThrows
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         Long id = Long.valueOf(req.getParameter("id"));
-        Class.forName(DRIVER_DB);
-        Connection con = DriverManager.getConnection(DATABASE_URL, DATABASE_USER, DATABASE_PASSWORD);
+        Class.forName("org.postgresql.Driver");
+        Connection con = DataBaseConnection.getInstance().getConnection();
         PreparedStatement st = con.prepareStatement("delete from department where id=?");
         st.setLong(1, id);
         int execute = st.executeUpdate();

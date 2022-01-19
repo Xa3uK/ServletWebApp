@@ -8,7 +8,7 @@
 </head>
 
 <body class="w3-light-grey">
-<div class="w3-container w3-blue-grey w3-opacity w3-right-align">
+<div class="w3-container w3-blue w3-opacity w3-right-align">
   <h1>Servlet Web App</h1>
 </div>
 

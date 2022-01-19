@@ -1,4 +1,4 @@
-package net.servlet.appservlets.employeeservlets;
+package net.servlet.appservlets.employee.servlets;
 
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
@@ -6,15 +6,12 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.SneakyThrows;
+import net.servlet.connection.DataBaseConnection;
 
 import java.io.IOException;
 import java.sql.*;
 
 public class UpdateEmployeeServlet extends HttpServlet {
-    static final String DRIVER_DB = "org.postgresql.Driver";
-    static final String DATABASE_URL = "jdbc:postgresql://localhost:5432/homework";
-    static final String DATABASE_USER = "xa3uk";
-    static final String DATABASE_PASSWORD = "perilrulit1";
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -34,8 +31,8 @@ public class UpdateEmployeeServlet extends HttpServlet {
         String name = req.getParameter("name");
         int salary = Integer.parseInt(req.getParameter("salary"));
 
-        Class.forName(DRIVER_DB);
-        Connection con = DriverManager.getConnection(DATABASE_URL, DATABASE_USER, DATABASE_PASSWORD);
+        Class.forName("org.postgresql.Driver");
+        Connection con = DataBaseConnection.getInstance().getConnection();
         String sql = "update employee set department_id=?, chief_id=?, name=?, salary=? where id=?";
         PreparedStatement st = con.prepareStatement(sql);
         st.setLong(1, departmentId);

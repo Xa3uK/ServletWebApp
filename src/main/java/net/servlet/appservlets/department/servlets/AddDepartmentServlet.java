@@ -1,4 +1,4 @@
-package net.servlet.appservlets.departmentservlets;
+package net.servlet.appservlets.department.servlets;
 
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
@@ -6,15 +6,12 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.SneakyThrows;
+import net.servlet.connection.DataBaseConnection;
 
 import java.io.IOException;
 import java.sql.*;
 
 public class AddDepartmentServlet extends HttpServlet {
-    static final String DRIVER_DB = "org.postgresql.Driver";
-    static final String DATABASE_URL = "jdbc:postgresql://localhost:5432/homework";
-    static final String DATABASE_USER = "xa3uk";
-    static final String DATABASE_PASSWORD = "perilrulit1";
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -27,8 +24,8 @@ public class AddDepartmentServlet extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String name = req.getParameter("departmentName");
 
-        Class.forName(DRIVER_DB);
-        Connection con = DriverManager.getConnection(DATABASE_URL, DATABASE_USER, DATABASE_PASSWORD);
+        Class.forName("org.postgresql.Driver");
+        Connection con = DataBaseConnection.getInstance().getConnection();
         String sql = "INSERT INTO department (name) VALUES (?)";
         PreparedStatement st = con.prepareStatement(sql, new String[]{"id"});
         st.setString(1, name);

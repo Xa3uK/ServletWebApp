@@ -1,4 +1,4 @@
-package net.servlet.appservlets.employeeservlets;
+package net.servlet.appservlets.employee.servlets;
 
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
@@ -6,6 +6,7 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.SneakyThrows;
+import net.servlet.connection.DataBaseConnection;
 import net.servlet.entities.Employee;
 
 import java.io.IOException;
@@ -16,18 +17,14 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class EmployeeListServlet extends HttpServlet {
-    static final String DRIVER_DB = "org.postgresql.Driver";
-    static final String DATABASE_URL = "jdbc:postgresql://localhost:5432/homework";
-    static final String DATABASE_USER = "xa3uk";
-    static final String DATABASE_PASSWORD = "perilrulit1";
 
     @Override
     @SneakyThrows
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         List<Employee> employees = new ArrayList<>();
 
-        Class.forName(DRIVER_DB);
-        Connection con = DriverManager.getConnection(DATABASE_URL, DATABASE_USER, DATABASE_PASSWORD);
+        Class.forName("org.postgresql.Driver");
+        Connection con = DataBaseConnection.getInstance().getConnection();
         Statement st = con.createStatement();
         ResultSet rs = st.executeQuery("select * from employee");
         while (rs.next()) {
