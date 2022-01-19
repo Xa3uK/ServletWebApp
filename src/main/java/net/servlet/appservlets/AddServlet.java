@@ -1,4 +1,4 @@
-package net.proselyte.servlet.appservlets;
+package net.servlet.appservlets;
 
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;

@@ -1,4 +1,4 @@
-package net.proselyte.servlet.soloservlets;
+package net.servlet.soloservlets;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;

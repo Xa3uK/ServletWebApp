@@ -1,4 +1,4 @@
-package net.proselyte.servlet.appservlets;
+package net.servlet.appservlets;
 
 import jakarta.mail.*;
 import jakarta.mail.internet.InternetAddress;

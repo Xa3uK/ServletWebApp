@@ -1,4 +1,4 @@
-package net.proselyte.servlet.soloservlets;
+package net.servlet.soloservlets;
 
 import jakarta.servlet.annotation.MultipartConfig;
 import jakarta.servlet.http.Part;

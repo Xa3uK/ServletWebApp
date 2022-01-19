@@ -1,5 +1,5 @@
 <%@ page import="java.util.List" %>
-<%@ page import="net.proselyte.servlet.entities.Employee" %>
+<%@ page import="net.servlet.entities.Employee" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>

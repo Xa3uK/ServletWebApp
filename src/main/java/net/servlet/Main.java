@@ -1,4 +1,4 @@
-package net.proselyte.servlet;
+package net.servlet;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

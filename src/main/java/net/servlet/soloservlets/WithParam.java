@@ -1,4 +1,4 @@
-package net.proselyte.servlet.soloservlets;
+package net.servlet.soloservlets;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
@@ -8,13 +8,14 @@ import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-public class SendWords extends HttpServlet {
+public class WithParam extends HttpServlet {
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/html");
 
         PrintWriter writer = response.getWriter();
-        String title = "Passing parameters using POST method";
+        String title = "Passing parameters using GET method";
+
 
         writer.println("<html>" +
                 "<head><title>" + title + "</title></head>\n" +
@@ -25,6 +26,6 @@ public class SendWords extends HttpServlet {
     }
 
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        doGet(request, response);
+
     }
 }
