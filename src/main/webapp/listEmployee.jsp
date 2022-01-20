@@ -3,18 +3,18 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-  <title>Users list</title>
+  <title>Employees list</title>
   <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 </head>
 
 <body class="w3-light-grey">
-<div class="w3-container w3-blue-grey w3-opacity w3-right-align">
-  <h1>HAZAPOWER SUPER APP</h1>
+<div class="w3-container w3-blue w3-opacity w3-right-align">
+  <h1>Servlet Web App</h1>
 </div>
 
 <div class="w3-container w3-center w3-margin-bottom w3-padding">
   <div class="w3-card-4">
-    <div class="w3-container w3-light-blue">
+    <div class="w3-container w3-green">
       <h2>Employees</h2>
     </div>
     <%
@@ -23,7 +23,9 @@
       if (employees != null && !employees.isEmpty()) {
         out.println("<ul class=\"w3-ul\">");
         for (Employee e : employees) {
-          out.println("<li class=\"w3-hover-sand\">" + "id: " + e.getId() + ", " + e.getName() + ", salary: " + e.getSalary() + "</li>");
+          out.println("<li class=\"w3-hover-sand\">" + "id: " + e.getId() + ", " + e.getName()
+                  + ", salary: " + e.getSalary() + ", chiefID: " + e.getChiefId()
+                  + ", departmentId: " + e.getDepartmentId() + "</li>");
         }
         out.println("</ul>");
 

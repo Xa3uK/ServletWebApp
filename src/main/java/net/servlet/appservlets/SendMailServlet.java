@@ -53,5 +53,11 @@ public class SendMailServlet extends HttpServlet {
             e.printStackTrace();
         }
     }
+
+    @Override
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        RequestDispatcher requestDispatcher = req.getRequestDispatcher("sendmail.jsp");
+        requestDispatcher.forward(req, resp);
+    }
 }
 
