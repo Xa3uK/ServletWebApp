@@ -54,7 +54,7 @@
     </div>
 </div>
 
-<div class="w3-container w3-grey w3-opacity w3-right-align w3-padding">
+<div class="w3-container w3-blue w3-opacity w3-right-align w3-padding">
     <button class="w3-btn w3-round-large" onclick="location.href='/'">Back to main</button>
 </div>
 </body>

@@ -31,13 +31,16 @@ public class EmployeeListServlet extends HttpServlet {
             Long id = rs.getLong("id");
             Long departmentId = rs.getLong("department_id");
             Long chiefId = rs.getLong("chief_id");
+            if (rs.wasNull()) {
+                chiefId = null;
+            }
             String name = rs.getString("name");
             int salary = rs.getInt("salary");
             employees.add(new Employee(id, departmentId, chiefId, name, salary));
         }
         employees = employees.stream()
-                        .sorted(Comparator.comparing(Employee::getId))
-                                .collect(Collectors.toList());
+                .sorted(Comparator.comparing(Employee::getId))
+                .collect(Collectors.toList());
         req.setAttribute("employeesData", employees);
 
         RequestDispatcher requestDispatcher = req.getRequestDispatcher("listEmployee.jsp");

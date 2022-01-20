@@ -14,7 +14,7 @@
 
 <div class="w3-container w3-center w3-margin-bottom w3-padding">
   <div class="w3-card-4">
-    <div class="w3-container w3-light-blue">
+    <div class="w3-container w3-green">
       <h2>Employees</h2>
     </div>
     <%
@@ -23,7 +23,9 @@
       if (employees != null && !employees.isEmpty()) {
         out.println("<ul class=\"w3-ul\">");
         for (Employee e : employees) {
-          out.println("<li class=\"w3-hover-sand\">" + "id: " + e.getId() + ", " + e.getName() + ", salary: " + e.getSalary() + "</li>");
+          out.println("<li class=\"w3-hover-sand\">" + "id: " + e.getId() + ", " + e.getName()
+                  + ", salary: " + e.getSalary() + ", chiefID: " + e.getChiefId()
+                  + ", departmentId: " + e.getDepartmentId() + "</li>");
         }
         out.println("</ul>");
 
