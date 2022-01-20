@@ -17,22 +17,29 @@
     <h1>Servlet Web App</h1>
 </div>
 
-<div class="w3-container w3-padding">
-    <body>
-    <form action="sendmail" method="POST">
-        email: <input type="text" name="email">
-        <br/>
-        subject: <input type="text" name="subject">
-        <br/>
-        message: <input type="text" name="message"/>
-        <input type="submit" value="SEND MAIL"/>
-    </form>
-    </body>
-</div>
+<div class="w3-container w3-center w3-margin-bottom w3-padding">
+    <div class="w3-card-4">
+        <div class="w3-container w3-center w3-green">
+            <h2>Send mail</h2>
+        </div>
+        <div class="w3-container w3-padding">
+            <body>
+            <form action="sendmail" method="POST">
+                email: <input type="text" name="email">
+                <br/>
+                subject: <input type="text" name="subject">
+                <br/>
+                message: <input type="text" name="message"/>
+                <input type="submit" value="SEND MAIL"/>
+
+            </form>
+            </body>
+        </div>
+    </div>
 
 
-<div class="w3-container w3-blue w3-opacity w3-right-align w3-padding">
-    <button class="w3-btn w3-round-large" onclick="location.href='/'">Back to main</button>
-</div>
+    <div class="w3-container w3-blue w3-opacity w3-right-align w3-padding">
+        <button class="w3-btn w3-round-large" onclick="location.href='/'">Back to main</button>
+    </div>
 </body>
 </html>

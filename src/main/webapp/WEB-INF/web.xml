@@ -86,6 +86,26 @@
     </servlet-mapping>
 
     <servlet>
+        <servlet-name>getEmployee</servlet-name>
+        <servlet-class>net.servlet.appservlets.employee.servlets.GetEmployeeServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>getEmployee</servlet-name>
+        <url-pattern>/getEmployee</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>getDepartment</servlet-name>
+        <servlet-class>net.servlet.appservlets.department.servlets.GetDepartmentServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>getDepartment</servlet-name>
+        <url-pattern>/getDepartment</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
         <servlet-name>updateDepartment</servlet-name>
         <servlet-class>net.servlet.appservlets.department.servlets.UpdateDepartmentServlet</servlet-class>
     </servlet>
