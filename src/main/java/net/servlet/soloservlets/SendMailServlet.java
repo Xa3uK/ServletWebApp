@@ -1,4 +1,4 @@
-package net.servlet.appservlets;
+package net.servlet.soloservlets;
 
 import jakarta.mail.*;
 import jakarta.mail.internet.InternetAddress;

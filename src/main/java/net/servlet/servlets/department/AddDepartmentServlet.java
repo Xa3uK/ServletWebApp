@@ -1,7 +1,8 @@
-package net.servlet.appservlets.department.servlets;
+package net.servlet.servlets.department;
 
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -10,12 +11,12 @@ import net.servlet.connection.DataBaseConnection;
 
 import java.io.IOException;
 import java.sql.*;
-
+@WebServlet("/addDepartment")
 public class AddDepartmentServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        RequestDispatcher requestDispatcher = req.getRequestDispatcher("addDepartment.jsp");
+        RequestDispatcher requestDispatcher = req.getRequestDispatcher("department/addDepartment.jsp");
         requestDispatcher.forward(req, resp);
     }
 

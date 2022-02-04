@@ -4,6 +4,7 @@ import jakarta.mail.*;
 import jakarta.mail.internet.InternetAddress;
 import jakarta.mail.internet.MimeMessage;
 import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -12,13 +13,14 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Properties;
 
+@WebServlet("/sendmail")
 public class Mail extends HttpServlet {
 
     static final String SENDER_EMAIL_ADDRESS = "xa3ukxa3uk@gmail.com";
     static final String SENDER_EMAIL_PASSWORD = "tqbu xyos gwvi ehpr";
     static final String SENDER_HOST = "smtp.gmail.com";
     static final String SENDER_PORT = "587";
-    static final String RECEIVER_EMAIL_ADDRESS = "kseniya2811grace@gmail.com";
+    static final String RECEIVER_EMAIL_ADDRESS = "hazardsales@gmail.com";
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, IOException {
 

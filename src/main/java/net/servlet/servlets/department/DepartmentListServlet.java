@@ -1,7 +1,8 @@
-package net.servlet.appservlets.department.servlets;
+package net.servlet.servlets.department;
 
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -19,7 +20,7 @@ import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
-
+@WebServlet("/listDepartment")
 public class DepartmentListServlet extends HttpServlet {
 
     @Override
@@ -40,7 +41,7 @@ public class DepartmentListServlet extends HttpServlet {
                                 .collect(Collectors.toList());
         req.setAttribute("departmentsData", departments);
 
-        RequestDispatcher requestDispatcher = req.getRequestDispatcher("listDepartment.jsp");
+        RequestDispatcher requestDispatcher = req.getRequestDispatcher("department/listDepartment.jsp");
         requestDispatcher.forward(req, resp);
     }
 }

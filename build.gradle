@@ -29,8 +29,11 @@ dependencies {
 
     // https://mvnrepository.com/artifact/com.sun.mail/jakarta.mail
     implementation 'com.sun.mail:jakarta.mail:2.0.1'
+    implementation group: 'org.eclipse.jetty', name: 'apache-jstl', version: '11.0.0'
+}
 
-
+war {
+    archiveFileName = 'KovalServletApp.war'
 }
 
 test {

@@ -1,9 +1,9 @@
 <%@ page import="java.util.List" %>
-<%@ page import="net.servlet.entities.Employee" %>
+<%@ page import="net.servlet.entities.Department" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-  <title>Employees list</title>
+  <title>Departments list</title>
   <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 </head>
 
@@ -15,17 +15,15 @@
 <div class="w3-container w3-center w3-margin-bottom w3-padding">
   <div class="w3-card-4">
     <div class="w3-container w3-green">
-      <h2>Employees</h2>
+      <h2>Departments</h2>
     </div>
     <%
-      List<Employee> employees = (List<Employee>) request.getAttribute("employeesData");
+      List<Department> departments = (List<Department>) request.getAttribute("departmentsData");
 
-      if (employees != null && !employees.isEmpty()) {
+      if (departments != null && !departments.isEmpty()) {
         out.println("<ul class=\"w3-ul\">");
-        for (Employee e : employees) {
-          out.println("<li class=\"w3-hover-sand\">" + "id: " + e.getId() + ", " + e.getName()
-                  + ", salary: " + e.getSalary() + ", chiefID: " + e.getChiefId()
-                  + ", departmentId: " + e.getDepartmentId() + "</li>");
+        for (Department d : departments) {
+          out.println("<li class=\"w3-hover-sand\">" + "id: " + d.getId() + ", " + d.getName() + "</li>");
         }
         out.println("</ul>");
 
@@ -33,14 +31,14 @@
               +
               "   <span onclick=\"this.parentElement.style.display='none'\"\n" +
               "   class=\"w3-button w3-margin-right w3-display-right w3-round-large w3-hover-green w3-border w3-border-green w3-hover-border-grey\">×</span>\n" +
-              "   <h5>There are no users yet!</h5>\n" +
+              "   <h5>There are no departments yet!</h5>\n" +
               "</div>");
     %>
   </div>
 </div>
 
 <div class="w3-container w3-blue w3-opacity w3-right-align w3-padding">
-  <button class="w3-btn w3-round-large" onclick="location.href='/'">Back to main</button>
+  <button class="w3-btn w3-round-large" onclick="location.href='./'">Back to main</button>
 </div>
 </body>
 </html>
