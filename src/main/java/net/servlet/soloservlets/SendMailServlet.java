@@ -3,27 +3,26 @@ package net.servlet.soloservlets;
 import jakarta.mail.*;
 import jakarta.mail.internet.InternetAddress;
 import jakarta.mail.internet.MimeMessage;
+import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
-import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import lombok.SneakyThrows;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.Properties;
 
-@WebServlet("/sendmail")
-public class Mail extends HttpServlet {
+public class SendMailServlet extends HttpServlet {
 
     static final String SENDER_EMAIL_ADDRESS = "xa3ukxa3uk@gmail.com";
     static final String SENDER_EMAIL_PASSWORD = "tqbu xyos gwvi ehpr";
     static final String SENDER_HOST = "smtp.gmail.com";
     static final String SENDER_PORT = "587";
-    static final String RECEIVER_EMAIL_ADDRESS = "hazardsales@gmail.com";
 
-    public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, IOException {
-
+    @Override
+    @SneakyThrows
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         Properties properties = new Properties();
         properties.put("mail.smtp.host", SENDER_HOST);
         properties.put("mail.smtp.port", SENDER_PORT);
@@ -39,38 +38,26 @@ public class Mail extends HttpServlet {
                     }
                 });
 
-        response.setContentType("text/html");
-
-        String docType = "<!DOCTYPE html>";
-        String title = "Send Email Demo";
-
-        PrintWriter writer = response.getWriter();
-
         try {
             MimeMessage message = new MimeMessage(session);
             message.setFrom(new InternetAddress(SENDER_EMAIL_ADDRESS));
             message.addRecipient(Message.RecipientType.TO,
-                    new InternetAddress(RECEIVER_EMAIL_ADDRESS));
-            message.setSubject("Java Tests");
-            message.setText("java emeiliki test");
+                    new InternetAddress(req.getParameter("email")));
+            message.setSubject(req.getParameter("subject"));
+            message.setText(req.getParameter("message"));
             Transport.send(message);
-            String sendEmailResultMessage = "Email is successfully sent!";
-            writer.println(docType + "<html>" +
-                    "<head>" +
-                    "<title>" + title + "</title>" +
-                    "</head>" +
-                    "<body>" +
-                    "<h1>" + sendEmailResultMessage + "</h1>" +
-                    "</body>" +
-                    "</html>");
 
-
+            RequestDispatcher requestDispatcher = req.getRequestDispatcher("sendmail.jsp");
+            requestDispatcher.forward(req, resp);
         } catch (MessagingException e) {
             e.printStackTrace();
         }
     }
 
-    public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        doGet(request, response);
+    @Override
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        RequestDispatcher requestDispatcher = req.getRequestDispatcher("sendmail.jsp");
+        requestDispatcher.forward(req, resp);
     }
 }
+
