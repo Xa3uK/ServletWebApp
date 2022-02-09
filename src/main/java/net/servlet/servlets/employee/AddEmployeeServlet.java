@@ -7,10 +7,9 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.SneakyThrows;
-import net.servlet.connection.DataBaseConnection;
+import net.servlet.services.EmployeeManageService;
 
 import java.io.IOException;
-import java.sql.*;
 
 @WebServlet("/addEmployee")
 public class AddEmployeeServlet extends HttpServlet {
@@ -31,25 +30,8 @@ public class AddEmployeeServlet extends HttpServlet {
         }
         String name = req.getParameter("name");
         int salary = Integer.parseInt(req.getParameter("salary"));
-
-        Class.forName("org.postgresql.Driver");
-        Connection con = DataBaseConnection.getInstance().getConnection();
-        String sql = "INSERT INTO employee (department_id, chief_id, name, salary) VALUES (?, ?, ?, ?)";
-        PreparedStatement st = con.prepareStatement(sql, new String[]{"id"});
-        st.setLong(1, departmentId);
-        if (chiefId == null) {
-            st.setNull(2, Types.NULL);
-        } else {
-            st.setLong(2, chiefId);
-        }
-        st.setString(3, name);
-        st.setInt(4, salary);
-        st.executeUpdate();
-        Long id = null;
-        ResultSet gk = st.getGeneratedKeys();
-        if (gk.next()) {
-            id = gk.getLong("id");
-        }
+        EmployeeManageService ems = new EmployeeManageService();
+        Long id = ems.addEmployee(departmentId, chiefId, name, salary);
         req.setAttribute("employeeName", name);
         req.setAttribute("id", id);
         doGet(req, resp);
