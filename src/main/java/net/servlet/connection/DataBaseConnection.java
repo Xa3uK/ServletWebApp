@@ -1,12 +1,11 @@
 package net.servlet.connection;
 
 import lombok.SneakyThrows;
-import org.postgresql.Driver;
+import net.servlet.AppConfig;
 
-import java.io.FileInputStream;
 import java.sql.Connection;
 import java.sql.DriverManager;
-import java.util.Properties;
+
 
 public class DataBaseConnection {
     private static DataBaseConnection instance;
@@ -15,12 +14,12 @@ public class DataBaseConnection {
     @SneakyThrows
     public Connection getConnection(){
         if(connection == null){
-            Properties prop = new Properties();
-            FileInputStream fis = new FileInputStream("/Users/xa3uk/Desktop/hillel/servproselyte/src/main/resources/config.properties");
-            prop.load(fis);
-            String url = prop.getProperty("db.host");
-            String login = prop.getProperty("db.login");
-            String password = prop.getProperty("db.password");
+            AppConfig.init();
+            String url = AppConfig.getProperty("db.url");
+            String login = AppConfig.getProperty("db.login");
+            String password = AppConfig.getProperty("db.password");
+            String driver = AppConfig.getProperty("db.driver");
+            Class.forName(driver);
             connection = DriverManager.getConnection(url, login, password);
         }
         return connection;

@@ -8,6 +8,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.SneakyThrows;
 import net.servlet.connection.DataBaseConnection;
+import net.servlet.services.DepartmentManageService;
 
 import java.io.IOException;
 import java.sql.*;
@@ -24,18 +25,8 @@ public class AddDepartmentServlet extends HttpServlet {
     @SneakyThrows
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String name = req.getParameter("departmentName");
-
-        Class.forName("org.postgresql.Driver");
-        Connection con = DataBaseConnection.getInstance().getConnection();
-        String sql = "INSERT INTO department (name) VALUES (?)";
-        PreparedStatement st = con.prepareStatement(sql, new String[]{"id"});
-        st.setString(1, name);
-        st.executeUpdate();
-        Long id = null;
-        ResultSet gk = st.getGeneratedKeys();
-        if (gk.next()) {
-            id = gk.getLong("id");
-        }
+        DepartmentManageService dms = new DepartmentManageService();
+        Long id = dms.addDepartment(name);
         req.setAttribute("departmentName", name);
         req.setAttribute("id", id);
         doGet(req, resp);

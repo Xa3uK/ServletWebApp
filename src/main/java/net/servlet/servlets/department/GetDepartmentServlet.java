@@ -10,11 +10,13 @@ import lombok.SneakyThrows;
 import net.servlet.connection.DataBaseConnection;
 import net.servlet.entities.Department;
 import net.servlet.entities.Employee;
+import net.servlet.services.DepartmentManageService;
 
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+
 @WebServlet("/getDepartment")
 public class GetDepartmentServlet extends HttpServlet {
 
@@ -28,18 +30,8 @@ public class GetDepartmentServlet extends HttpServlet {
     @SneakyThrows
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         Long departmentId = Long.valueOf(req.getParameter("id"));
-
-        Class.forName("org.postgresql.Driver");
-        Connection con = DataBaseConnection.getInstance().getConnection();
-        String sql = "select * from department where id = ?";
-        PreparedStatement st = con.prepareStatement(sql);
-        st.setLong(1, departmentId);
-        ResultSet rs = st.executeQuery();
-        Department department = null;
-        if (rs.next()) {
-            department = new Department(rs.getLong("id"),
-                    rs.getString("name"));
-        }
+        DepartmentManageService dms = new DepartmentManageService();
+        Department department = dms.getDepartment(departmentId);
         req.setAttribute("department", department);
         req.setAttribute("id", departmentId);
         doGet(req, resp);
