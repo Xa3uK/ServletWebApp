@@ -20,4 +20,24 @@ public class Employee {
         this.name = name;
         this.salary = salary;
     }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public void setDepartmentId(Long departmentId) {
+        this.departmentId = departmentId;
+    }
+
+    public void setChiefId(Long chiefId) {
+        this.chiefId = chiefId;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setSalary(int salary) {
+        this.salary = salary;
+    }
 }
